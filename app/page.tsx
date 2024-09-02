@@ -1,4 +1,4 @@
-export default function Home(props: {children: React.ReactNode}) {
+export default function Home() {
   return (
     <p>Home page</p>
   );
