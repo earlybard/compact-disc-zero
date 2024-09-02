@@ -23,9 +23,9 @@ export const agentSlice = createSlice({
         /**
          * Change the currently selected Agent.
          */
-        selectAgent: (state, payload: PayloadAction<Agent | null>) => {
+        selectAgent: (state, payload: PayloadAction<string>) => {
 
-            const index = state.agents.findIndex(x => x.label === payload.payload?.label)
+            const index = state.agents.findIndex(x => x.label === payload.payload)
             const selectedAgent = state.agents[index]
 
             if (selectedAgent) {
