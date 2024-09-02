@@ -124,7 +124,7 @@ export function Nav(props: { children: React.ReactNode }) {
             </SheetContent>
           </Sheet>
         </header>
-        <div className="flex items-center justify-center">
+        <div className="flex items-center justify-center px-2">
             {props.children}
         </div>
       </div>
