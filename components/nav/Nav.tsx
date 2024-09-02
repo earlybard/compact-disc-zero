@@ -2,13 +2,34 @@ import Link from "next/link"
 import {Home, LineChart, Menu, Package, Package2, ShoppingCart, Swords, Users} from "lucide-react"
 import {Button} from "@/components/ui/button"
 import {Sheet, SheetContent, SheetTrigger} from "@/components/ui/sheet"
-import {Page} from "@/components/nav/page";
 import {NavLink} from "@/components/nav/NavLink";
+import React from "react";
+
+export interface Page {
+  url: string,
+  label: string,
+  icon: React.ReactNode
+}
 
 const pages: Page[] = [
   {
     url: "/damage",
     label: "Damage",
+    icon: <Swords className="h-4 w-4"/>
+  },
+  {
+    url: "/disc-drives",
+    label: "Disc Drives",
+    icon: <Swords className="h-4 w-4"/>
+  },
+  {
+    url: "/rotation",
+    label: "Rotation",
+    icon: <Swords className="h-4 w-4"/>
+  },
+  {
+    url: "/w-engine",
+    label: "W-Engine",
     icon: <Swords className="h-4 w-4"/>
   },
   {
@@ -18,12 +39,15 @@ const pages: Page[] = [
   }
 ]
 
+/**
+ * Taken from a shadcn example. Only half-built, the mobile mode is hard coded and wrong.
+ */
 export function Nav(props: { children: React.ReactNode }) {
 
   return (
     <div className="grid min-h-screen w-full md:grid-cols-[220px_1fr] lg:grid-cols-[280px_1fr]">
       <div className="hidden border-r bg-muted/40 md:block">
-        <div className="flex h-full max-h-screen flex-col gap-2">
+        <div className="flex h-full max-h-screen flex-col gap-x-2">
           <div className="flex h-14 items-center border-b px-4 lg:h-[60px] lg:px-6">
             <Link href="/" className="flex items-center gap-2 font-semibold">
               <Package2 className="h-6 w-6" />
@@ -31,7 +55,7 @@ export function Nav(props: { children: React.ReactNode }) {
             </Link>
           </div>
           <div className="flex-1">
-            <nav className="grid items-start px-2 text-sm font-medium lg:px-4">
+            <nav className="grid items-start px-2 py-2 text-sm font-medium lg:px-4 lg:py-4">
               {
                 pages.map((page) => <NavLink page={page} key={page.label}/>)
               }

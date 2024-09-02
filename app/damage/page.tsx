@@ -8,6 +8,9 @@ import {Input} from "@/components/ui/input";
 import {Label} from "@/components/ui/label";
 import {AgentSelector} from "@/components/AgentSelector";
 
+/**
+ * Damage calcs. Displayed as a component mainly for reference.
+ */
 export default function DamagePage() {
 
   const agent = useAppSelector(s => s.agent.selectedAgent)

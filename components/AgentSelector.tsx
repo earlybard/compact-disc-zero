@@ -19,8 +19,9 @@ import {
     PopoverTrigger,
 } from "@/components/ui/popover"
 import {useAppDispatch, useAppSelector} from "@/lib/store/util/hooks";
-import {useState} from "react";
 import {agentActions} from "@/lib/store/agentStore";
+
+// Mostly just taken from https://ui.shadcn.com/docs/components/combobox
 
 export function AgentSelector() {
     const [open, setOpen] = React.useState(false)
@@ -28,27 +29,23 @@ export function AgentSelector() {
     const agent = useAppSelector((state) => state.agent)
     const dispatch = useAppDispatch()
 
-    const [inputValue, setInputValue] = useState('');
-
     return (
         <>
         <Popover open={open} onOpenChange={setOpen}>
-            <PopoverTrigger asChild>
+            <PopoverTrigger  asChild>
                 <Button
                     variant="outline"
                     role="combobox"
                     aria-expanded={open}
                     className="w-[200px] justify-between"
                 >
-                    {agent.selectedAgent
-                        ? agent.selectedAgent.label
-                        : "Select framework..."}
+                    {agent.selectedAgent ? agent.selectedAgent.label : "Select Agent..."}
                     <ChevronsUpDown className="ml-2 h-4 w-4 shrink-0 opacity-50" />
                 </Button>
             </PopoverTrigger>
             <PopoverContent className="w-[200px] p-0">
                 <Command>
-                    <CommandInput placeholder="Search framework..." />
+                    <CommandInput placeholder="Search Agent..." />
                     <CommandList>
                         <CommandEmpty>No framework found.</CommandEmpty>
                         <CommandGroup>

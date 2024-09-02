@@ -3,6 +3,9 @@ import { useRef } from 'react'
 import { Provider } from 'react-redux'
 import {AppStore, makeStore} from "@/lib/store/util/store";
 
+/**
+ * Provides the Redux store. Has special logic for NextJS due to the chance of multiple server threads.
+ */
 export default function StoreProvider({children,}: { children: React.ReactNode }) {
     const storeRef = useRef<AppStore>()
 
