@@ -1,5 +1,5 @@
 import {createSlice, PayloadAction} from "@reduxjs/toolkit";
-import {Agent, AgentName} from "@/lib/zzz/core/Agent";
+import {Agent} from "@/lib/zzz/core/Agent";
 import {JaneDoe} from "@/lib/zzz/agents/janeDoe";
 import {ZhuYuan} from "@/lib/zzz/agents/zhuYuan";
 
