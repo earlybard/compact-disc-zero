@@ -2,6 +2,7 @@ import {createSlice, PayloadAction} from "@reduxjs/toolkit";
 import {Agent} from "@/lib/zzz/core/Agent";
 import {JaneDoe} from "@/lib/zzz/agents/janeDoe";
 import {ZhuYuan} from "@/lib/zzz/agents/zhuYuan";
+import {DiscDrive} from "@/lib/zzz/disc-drives/discDrive";
 
 export interface AgentState {
     agents: Agent[]
@@ -31,6 +32,9 @@ export const agentSlice = createSlice({
             if (selectedAgent) {
                 state.selectedAgent = selectedAgent
             }
+        },
+        updateDisc: (state, payload: PayloadAction<{ idx: number, drive: DiscDrive }>) => {
+            state.selectedAgent.discDrives[payload.payload.idx] = payload.payload.drive
         }
     }
 })

@@ -3,6 +3,7 @@ import {
 } from "@/lib/zzz/stats/discStats";
 import {Agent} from "@/lib/zzz/core/Agent";
 import {DefaultBuffValues} from "@/lib/zzz/stats/buffs";
+import {DefaultDiscs} from "@/lib/zzz/disc-drives/discDrive";
 
 export const ZhuYuan: Agent = {
   label: "Zhu Yuan",
@@ -49,5 +50,7 @@ export const ZhuYuan: Agent = {
     penPercent: 0.32,
     finalAtkFlat: 440,
     attributeDamagePercent: 0.55
-  }
+  },
+
+  discDrives: {...DefaultDiscs}
 }
